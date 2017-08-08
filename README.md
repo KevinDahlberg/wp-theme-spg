@@ -1,7 +1,7 @@
 # Theme Starter Template
 
 ## Description
-This theme is built on the barebones theme, based off of the `_s` theme, that integrates Bootstrap 4.  It's featured at www.spgdageneral.com
+This theme is built on the barebones theme, based off of the `spg` theme, that integrates Bootstrap 4.  It's featured at www.spgdageneral.com
 
 ## Features
   - WooCommerce Support
@@ -23,6 +23,6 @@ This theme is built on the barebones theme, based off of the `_s` theme, that in
 
 ## Resources and Acknowledgments
 - [Bootstrap 4 Documentation](https://v4-alpha.getbootstrap.com/getting-started/introduction/)
-- [`_s` theme](https://github.com/Automattic/_s)
+- [`spg` theme](https://github.com/Automattic/spg)
 - [theme starter template](https://github.com/KevinDahlberg/theme-template)
 - [Wordpress Developer Resources](https://developer.wordpress.org)

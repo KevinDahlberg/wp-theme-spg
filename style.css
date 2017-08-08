@@ -3,11 +3,11 @@ Theme Name: Theme Starter Template
 Theme URI: https://github.com/KevinDahlberg/theme-template
 Author: Kevin Dahlberg
 Author URI: http://kevindahlberg.com
-Description: Starter Theme Template based on _S theme that uses Bootstrap 4
+Description: Starter Theme Template based on spg theme that uses Bootstrap 4
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
-Text Domain: _s
+Text Domain: spg
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 I've decided to keep this template open to the public and stick to the GPL stuff.  Feel free to take this
@@ -16,7 +16,7 @@ and do what you will to it.
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-_s is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+spg is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 The original theme had Normalizing on it.  Bootstrap takes care of that, so why double up?

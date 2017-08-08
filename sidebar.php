@@ -4,16 +4,16 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package _s
+ * @package spg
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_activespgidebar( 'sidebar-1' ) ) {
 	return;
 }
 ?>
 
 <div class="col-sm-4">
 	<aside id="secondary" class="widget-area">
-		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		<?php dynamicspgidebar( 'sidebar-1' ); ?>
 	</aside><!-- #secondary -->
 </div>

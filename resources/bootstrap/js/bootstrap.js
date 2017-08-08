@@ -595,7 +595,7 @@ var Carousel = function ($) {
     ITEM: '.carousel-item',
     NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
     INDICATORS: '.carousel-indicators',
-    DATA_SLIDE: '[data-slide], [data-slide-to]',
+    DATAspgLIDE: '[data-slide], [data-slide-to]',
     DATA_RIDE: '[data-ride="carousel"]'
   };
 
@@ -631,7 +631,7 @@ var Carousel = function ($) {
       if (this._isSliding) {
         throw new Error('Carousel is sliding');
       }
-      this._slide(Direction.NEXT);
+      this.spglide(Direction.NEXT);
     };
 
     Carousel.prototype.nextWhenVisible = function nextWhenVisible() {
@@ -645,7 +645,7 @@ var Carousel = function ($) {
       if (this._isSliding) {
         throw new Error('Carousel is sliding');
       }
-      this._slide(Direction.PREVIOUS);
+      this.spglide(Direction.PREVIOUS);
     };
 
     Carousel.prototype.pause = function pause(event) {
@@ -703,7 +703,7 @@ var Carousel = function ($) {
 
       var direction = index > activeIndex ? Direction.NEXT : Direction.PREVIOUS;
 
-      this._slide(direction, this._items[index]);
+      this.spglide(direction, this._items[index]);
     };
 
     Carousel.prototype.dispose = function dispose() {
@@ -798,7 +798,7 @@ var Carousel = function ($) {
       return slideEvent;
     };
 
-    Carousel.prototype._setActiveIndicatorElement = function _setActiveIndicatorElement(element) {
+    Carousel.prototype.spgetActiveIndicatorElement = function spgetActiveIndicatorElement(element) {
       if (this._indicatorsElement) {
         $(this._indicatorsElement).find(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
 
@@ -810,7 +810,7 @@ var Carousel = function ($) {
       }
     };
 
-    Carousel.prototype._slide = function _slide(direction, element) {
+    Carousel.prototype.spglide = function spglide(direction, element) {
       var _this5 = this;
 
       var activeElement = $(this._element).find(Selector.ACTIVE_ITEM)[0];
@@ -853,7 +853,7 @@ var Carousel = function ($) {
         this.pause();
       }
 
-      this._setActiveIndicatorElement(nextElement);
+      this.spgetActiveIndicatorElement(nextElement);
 
       var slidEvent = $.Event(Event.SLID, {
         relatedTarget: nextElement,
@@ -975,7 +975,7 @@ var Carousel = function ($) {
    * ------------------------------------------------------------------------
    */
 
-  $(document).on(Event.CLICK_DATA_API, Selector.DATA_SLIDE, Carousel._dataApiClickHandler);
+  $(document).on(Event.CLICK_DATA_API, Selector.DATAspgLIDE, Carousel._dataApiClickHandler);
 
   $(window).on(Event.LOAD_DATA_API, function () {
     $(Selector.DATA_RIDE).each(function () {
@@ -1722,7 +1722,7 @@ var Modal = function ($) {
       this._ignoreBackdropClick = false;
       this._isTransitioning = false;
       this._originalBodyPadding = 0;
-      this._scrollbarWidth = 0;
+      this.spgcrollbarWidth = 0;
     }
 
     // getters
@@ -1756,12 +1756,12 @@ var Modal = function ($) {
       this._isShown = true;
 
       this._checkScrollbar();
-      this._setScrollbar();
+      this.spgetScrollbar();
 
       $(document.body).addClass(ClassName.OPEN);
 
-      this._setEscapeEvent();
-      this._setResizeEvent();
+      this.spgetEscapeEvent();
+      this.spgetResizeEvent();
 
       $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function (event) {
         return _this9.hide(event);
@@ -1775,8 +1775,8 @@ var Modal = function ($) {
         });
       });
 
-      this._showBackdrop(function () {
-        return _this9._showElement(relatedTarget);
+      this.spghowBackdrop(function () {
+        return _this9.spghowElement(relatedTarget);
       });
     };
 
@@ -1805,8 +1805,8 @@ var Modal = function ($) {
 
       this._isShown = false;
 
-      this._setEscapeEvent();
-      this._setResizeEvent();
+      this.spgetEscapeEvent();
+      this.spgetResizeEvent();
 
       $(document).off(Event.FOCUSIN);
 
@@ -1837,7 +1837,7 @@ var Modal = function ($) {
       this._isBodyOverflowing = null;
       this._ignoreBackdropClick = null;
       this._originalBodyPadding = null;
-      this._scrollbarWidth = null;
+      this.spgcrollbarWidth = null;
     };
 
     // private
@@ -1848,7 +1848,7 @@ var Modal = function ($) {
       return config;
     };
 
-    Modal.prototype._showElement = function _showElement(relatedTarget) {
+    Modal.prototype.spghowElement = function spghowElement(relatedTarget) {
       var _this11 = this;
 
       var transition = Util.supportsTransitionEnd() && $(this._element).hasClass(ClassName.FADE);
@@ -1902,7 +1902,7 @@ var Modal = function ($) {
       });
     };
 
-    Modal.prototype._setEscapeEvent = function _setEscapeEvent() {
+    Modal.prototype.spgetEscapeEvent = function spgetEscapeEvent() {
       var _this13 = this;
 
       if (this._isShown && this._config.keyboard) {
@@ -1916,7 +1916,7 @@ var Modal = function ($) {
       }
     };
 
-    Modal.prototype._setResizeEvent = function _setResizeEvent() {
+    Modal.prototype.spgetResizeEvent = function spgetResizeEvent() {
       var _this14 = this;
 
       if (this._isShown) {
@@ -1934,7 +1934,7 @@ var Modal = function ($) {
       this._element.style.display = 'none';
       this._element.setAttribute('aria-hidden', 'true');
       this._isTransitioning = false;
-      this._showBackdrop(function () {
+      this.spghowBackdrop(function () {
         $(document.body).removeClass(ClassName.OPEN);
         _this15._resetAdjustments();
         _this15._resetScrollbar();
@@ -1949,7 +1949,7 @@ var Modal = function ($) {
       }
     };
 
-    Modal.prototype._showBackdrop = function _showBackdrop(callback) {
+    Modal.prototype.spghowBackdrop = function spghowBackdrop(callback) {
       var _this16 = this;
 
       var animate = $(this._element).hasClass(ClassName.FADE) ? ClassName.FADE : '';
@@ -2030,11 +2030,11 @@ var Modal = function ($) {
       var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
 
       if (!this._isBodyOverflowing && isModalOverflowing) {
-        this._element.style.paddingLeft = this._scrollbarWidth + 'px';
+        this._element.style.paddingLeft = this.spgcrollbarWidth + 'px';
       }
 
       if (this._isBodyOverflowing && !isModalOverflowing) {
-        this._element.style.paddingRight = this._scrollbarWidth + 'px';
+        this._element.style.paddingRight = this.spgcrollbarWidth + 'px';
       }
     };
 
@@ -2045,16 +2045,16 @@ var Modal = function ($) {
 
     Modal.prototype._checkScrollbar = function _checkScrollbar() {
       this._isBodyOverflowing = document.body.clientWidth < window.innerWidth;
-      this._scrollbarWidth = this._getScrollbarWidth();
+      this.spgcrollbarWidth = this._getScrollbarWidth();
     };
 
-    Modal.prototype._setScrollbar = function _setScrollbar() {
+    Modal.prototype.spgetScrollbar = function spgetScrollbar() {
       var bodyPadding = parseInt($(Selector.FIXED_CONTENT).css('padding-right') || 0, 10);
 
       this._originalBodyPadding = document.body.style.paddingRight || '';
 
       if (this._isBodyOverflowing) {
-        document.body.style.paddingRight = bodyPadding + this._scrollbarWidth + 'px';
+        document.body.style.paddingRight = bodyPadding + this.spgcrollbarWidth + 'px';
       }
     };
 
@@ -2213,7 +2213,7 @@ var ScrollSpy = function ($) {
   };
 
   var Selector = {
-    DATA_SPY: '[data-spy="scroll"]',
+    DATAspgPY: '[data-spy="scroll"]',
     ACTIVE: '.active',
     LIST_ITEM: '.list-item',
     LI: 'li',
@@ -2242,15 +2242,15 @@ var ScrollSpy = function ($) {
       _classCallCheck(this, ScrollSpy);
 
       this._element = element;
-      this._scrollElement = element.tagName === 'BODY' ? window : element;
+      this.spgcrollElement = element.tagName === 'BODY' ? window : element;
       this._config = this._getConfig(config);
-      this._selector = this._config.target + ' ' + Selector.NAV_LINKS + ',' + (this._config.target + ' ' + Selector.DROPDOWN_ITEMS);
+      this.spgelector = this._config.target + ' ' + Selector.NAV_LINKS + ',' + (this._config.target + ' ' + Selector.DROPDOWN_ITEMS);
       this._offsets = [];
       this._targets = [];
       this._activeTarget = null;
-      this._scrollHeight = 0;
+      this.spgcrollHeight = 0;
 
-      $(this._scrollElement).on(Event.SCROLL, function (event) {
+      $(this.spgcrollElement).on(Event.SCROLL, function (event) {
         return _this18._process(event);
       });
 
@@ -2265,7 +2265,7 @@ var ScrollSpy = function ($) {
     ScrollSpy.prototype.refresh = function refresh() {
       var _this19 = this;
 
-      var autoMethod = this._scrollElement !== this._scrollElement.window ? OffsetMethod.POSITION : OffsetMethod.OFFSET;
+      var autoMethod = this.spgcrollElement !== this.spgcrollElement.window ? OffsetMethod.POSITION : OffsetMethod.OFFSET;
 
       var offsetMethod = this._config.method === 'auto' ? autoMethod : this._config.method;
 
@@ -2274,9 +2274,9 @@ var ScrollSpy = function ($) {
       this._offsets = [];
       this._targets = [];
 
-      this._scrollHeight = this._getScrollHeight();
+      this.spgcrollHeight = this._getScrollHeight();
 
-      var targets = $.makeArray($(this._selector));
+      var targets = $.makeArray($(this.spgelector));
 
       targets.map(function (element) {
         var target = void 0;
@@ -2303,16 +2303,16 @@ var ScrollSpy = function ($) {
 
     ScrollSpy.prototype.dispose = function dispose() {
       $.removeData(this._element, DATA_KEY);
-      $(this._scrollElement).off(EVENT_KEY);
+      $(this.spgcrollElement).off(EVENT_KEY);
 
       this._element = null;
-      this._scrollElement = null;
+      this.spgcrollElement = null;
       this._config = null;
-      this._selector = null;
+      this.spgelector = null;
       this._offsets = null;
       this._targets = null;
       this._activeTarget = null;
-      this._scrollHeight = null;
+      this.spgcrollHeight = null;
     };
 
     // private
@@ -2335,15 +2335,15 @@ var ScrollSpy = function ($) {
     };
 
     ScrollSpy.prototype._getScrollTop = function _getScrollTop() {
-      return this._scrollElement === window ? this._scrollElement.pageYOffset : this._scrollElement.scrollTop;
+      return this.spgcrollElement === window ? this.spgcrollElement.pageYOffset : this.spgcrollElement.scrollTop;
     };
 
     ScrollSpy.prototype._getScrollHeight = function _getScrollHeight() {
-      return this._scrollElement.scrollHeight || Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+      return this.spgcrollElement.scrollHeight || Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
     };
 
     ScrollSpy.prototype._getOffsetHeight = function _getOffsetHeight() {
-      return this._scrollElement === window ? window.innerHeight : this._scrollElement.offsetHeight;
+      return this.spgcrollElement === window ? window.innerHeight : this.spgcrollElement.offsetHeight;
     };
 
     ScrollSpy.prototype._process = function _process() {
@@ -2351,7 +2351,7 @@ var ScrollSpy = function ($) {
       var scrollHeight = this._getScrollHeight();
       var maxScroll = this._config.offset + scrollHeight - this._getOffsetHeight();
 
-      if (this._scrollHeight !== scrollHeight) {
+      if (this.spgcrollHeight !== scrollHeight) {
         this.refresh();
       }
 
@@ -2384,7 +2384,7 @@ var ScrollSpy = function ($) {
 
       this._clear();
 
-      var queries = this._selector.split(',');
+      var queries = this.spgelector.split(',');
       queries = queries.map(function (selector) {
         return selector + '[data-target="' + target + '"],' + (selector + '[href="' + target + '"]');
       });
@@ -2400,13 +2400,13 @@ var ScrollSpy = function ($) {
         $link.parents(Selector.LI).find('> ' + Selector.NAV_LINKS).addClass(ClassName.ACTIVE);
       }
 
-      $(this._scrollElement).trigger(Event.ACTIVATE, {
+      $(this.spgcrollElement).trigger(Event.ACTIVATE, {
         relatedTarget: target
       });
     };
 
     ScrollSpy.prototype._clear = function _clear() {
-      $(this._selector).filter(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
+      $(this.spgelector).filter(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
     };
 
     // static
@@ -2452,7 +2452,7 @@ var ScrollSpy = function ($) {
    */
 
   $(window).on(Event.LOAD_DATA_API, function () {
-    var scrollSpys = $.makeArray($(Selector.DATA_SPY));
+    var scrollSpys = $.makeArray($(Selector.DATAspgPY));
 
     for (var i = scrollSpys.length; i--;) {
       var $spy = $(scrollSpys[i]);
@@ -2861,7 +2861,7 @@ var Tooltip = function ($) {
       this.config = this._getConfig(config);
       this.tip = null;
 
-      this._setListeners();
+      this.spgetListeners();
     }
 
     // getters
@@ -3116,7 +3116,7 @@ var Tooltip = function ($) {
       return AttachmentMap[placement.toUpperCase()];
     };
 
-    Tooltip.prototype._setListeners = function _setListeners() {
+    Tooltip.prototype.spgetListeners = function spgetListeners() {
       var _this24 = this;
 
       var triggers = this.config.trigger.split(' ');

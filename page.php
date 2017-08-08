@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
+ * @package spg
  */
 
 get_header(); ?>
@@ -31,7 +31,7 @@ get_header(); ?>
 				?>
 			</div>
 			<div class="col-sm-4">
-			<?php get_sidebar(); ?>
+			<?php getspgidebar(); ?>
 			</div>
 		</div><!-- #main -->
 	</div><!-- #primary -->

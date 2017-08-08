@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package _s
+ * @package spg
  */
 
 get_header(); ?>
@@ -29,7 +29,7 @@ get_header(); ?>
 			</div>
 
 		<?php
-		get_sidebar();
+		getspgidebar();
 		?>
 		</div><!-- #main -->
 	</div><!-- #primary -->

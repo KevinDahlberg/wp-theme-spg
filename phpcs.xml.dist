@@ -33,7 +33,7 @@
 		 Multiple valid text domains can be provided as a comma-delimited list. -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="_s" />
+			<property name="text_domain" type="array" value="spg" />
 		</properties>
 	</rule>
 
@@ -50,7 +50,7 @@
 		 as set in the "Requires at least" tag in the readme.txt file. -->
 	<rule ref="WordPress.WP.DeprecatedFunctions">
 		<properties>
-			<property name="minimum_supported_version" value="4.0" />
+			<property name="minimumspgupported_version" value="4.0" />
 		</properties>
 	</rule>
 
