@@ -72,10 +72,10 @@ function getScrollParents(el) {
       return parents;
     }
 
-    var spgtyle = style;
-    var overflow = spgtyle.overflow;
-    var overflowX = spgtyle.overflowX;
-    var overflowY = spgtyle.overflowY;
+    var _style = style;
+    var overflow = _style.overflow;
+    var overflowX = _style.overflowX;
+    var overflowY = _style.overflowY;
 
     if (/(auto|scroll)/.test(overflow + overflowY + overflowX)) {
       if (position !== 'absolute' || ['relative', 'absolute', 'fixed'].indexOf(style.position) >= 0) {
@@ -179,10 +179,10 @@ function getOffsetParent(el) {
   return el.offsetParent || document.documentElement;
 }
 
-var spgcrollBarSize = null;
+var _scrollBarSize = null;
 function getScrollBarSize() {
-  if (spgcrollBarSize) {
-    return spgcrollBarSize;
+  if (_scrollBarSize) {
+    return _scrollBarSize;
   }
   var inner = document.createElement('div');
   inner.style.width = '100%';
@@ -216,8 +216,8 @@ function getScrollBarSize() {
 
   var width = widthContained - widthScroll;
 
-  spgcrollBarSize = { width: width, height: width };
-  return spgcrollBarSize;
+  _scrollBarSize = { width: width, height: width };
+  return _scrollBarSize;
 }
 
 function extend() {
@@ -418,7 +418,7 @@ TetherBase.Utils = {
 
 'use strict';
 
-var spglicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), spg; !(_n = (spg = _i.next()).done); _n = true) { _arr.push(spg.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -609,7 +609,7 @@ function offsetToPx(offset, size) {
 var parseOffset = function parseOffset(value) {
   var _value$split = value.split(' ');
 
-  var _value$split2 = spglicedToArray(_value$split, 2);
+  var _value$split2 = _slicedToArray(_value$split, 2);
 
   var top = _value$split2[0];
   var left = _value$split2[1];
@@ -1164,13 +1164,13 @@ var TetherClass = (function (_Evented) {
 
       var css = { top: '', left: '', right: '', bottom: '' };
 
-      var transcribe = function transcribe(spgame, _pos) {
+      var transcribe = function transcribe(_same, _pos) {
         var hasOptimizations = typeof _this8.options.optimizations !== 'undefined';
         var gpu = hasOptimizations ? _this8.options.optimizations.gpu : null;
         if (gpu !== false) {
           var yPos = undefined,
               xPos = undefined;
-          if (spgame.top) {
+          if (_same.top) {
             css.top = 0;
             yPos = _pos.top;
           } else {
@@ -1178,7 +1178,7 @@ var TetherClass = (function (_Evented) {
             yPos = -_pos.bottom;
           }
 
-          if (spgame.left) {
+          if (_same.left) {
             css.left = 0;
             xPos = _pos.left;
           } else {
@@ -1203,13 +1203,13 @@ var TetherClass = (function (_Evented) {
             css[transformKey] += " translateZ(0)";
           }
         } else {
-          if (spgame.top) {
+          if (_same.top) {
             css.top = _pos.top + 'px';
           } else {
             css.bottom = _pos.bottom + 'px';
           }
 
-          if (spgame.left) {
+          if (_same.left) {
             css.left = _pos.left + 'px';
           } else {
             css.right = _pos.right + 'px';
@@ -1302,7 +1302,7 @@ var Tether = extend(TetherClass, TetherBase);
 
 'use strict';
 
-var spglicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), spg; !(_n = (spg = _i.next()).done); _n = true) { _arr.push(spg.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 
 var _TetherBase$Utils = TetherBase.Utils;
 var getBounds = _TetherBase$Utils.getBounds;
@@ -1429,7 +1429,7 @@ TetherBase.modules.push({
       if (attachment.indexOf(' ') >= 0) {
         var _attachment$split = attachment.split(' ');
 
-        var _attachment$split2 = spglicedToArray(_attachment$split, 2);
+        var _attachment$split2 = _slicedToArray(_attachment$split, 2);
 
         changeAttachY = _attachment$split2[0];
         changeAttachX = _attachment$split2[1];
@@ -1764,7 +1764,7 @@ TetherBase.modules.push({
 
 'use strict';
 
-var spglicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), spg; !(_n = (spg = _i.next()).done); _n = true) { _arr.push(spg.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
+var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 
 TetherBase.modules.push({
   position: function position(_ref) {
@@ -1786,12 +1786,12 @@ TetherBase.modules.push({
       shift = shift.split(' ');
       shift[1] = shift[1] || shift[0];
 
-      var spghift = shift;
+      var _shift = shift;
 
-      var spghift2 = spglicedToArray(spghift, 2);
+      var _shift2 = _slicedToArray(_shift, 2);
 
-      shiftTop = spghift2[0];
-      shiftLeft = spghift2[1];
+      shiftTop = _shift2[0];
+      shiftLeft = _shift2[1];
 
       shiftTop = parseFloat(shiftTop, 10);
       shiftLeft = parseFloat(shiftLeft, 10);

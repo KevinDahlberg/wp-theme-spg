@@ -16,7 +16,7 @@
  */
 function spg_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
-	add_themespgupport( 'infinite-scroll', array(
+	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
 		'render'    => 'spg_infinite_scroll_render',
 		'footer'    => 'page',
@@ -42,10 +42,10 @@ add_action( 'after_setup_theme', 'spg_jetpack_setup' );
 /**
  * Custom render function for Infinite Scroll.
  */
-function spg_infinite_scroll_render() {
+function spg_infinitespgcroll_render() {
 	while ( have_posts() ) {
 		the_post();
-		if ( is_search() ) :
+		if ( isspgearch() ) :
 			get_template_part( 'template-parts/content', 'search' );
 		else :
 			get_template_part( 'template-parts/content', get_post_format() );
