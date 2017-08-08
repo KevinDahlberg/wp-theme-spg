@@ -330,8 +330,12 @@ embed, iframe, object {
   width: 100%;
 }
 
-.site-header {
+#page {
 	position: relative;
+	word-wrap: break-word;
+}
+
+.site-header {
 }
 
 .site-branding {
@@ -346,8 +350,6 @@ embed, iframe, object {
 
 #site-navigation {
   left: 0;
-  position: absolute;
   right: 0;
   width: 100%;
-  z-index: 3;
 }
