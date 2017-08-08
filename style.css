@@ -39,6 +39,9 @@ of this stuff.
 # Media
 	## Captions
 	## Galleries
+
+# Extras
+ ## Header
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -291,3 +294,11 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+#header {
+  background: url("<?php the_custom_header_markup(); ?>") 
+  no-repeat bottom center; }
+#headerimg  {
+  margin: 7px 9px 0;
+  height: 192px;
+  width: 740px; }

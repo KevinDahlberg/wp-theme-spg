@@ -25,6 +25,9 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'spg' ); ?></a>
 
 	<header id="masthead" class="site-header">
+
+		<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
+
 		<div class="site-branding">
 			<?php
 			the_custom_logo();

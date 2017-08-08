@@ -42,6 +42,10 @@ if ( ! function_exists( 'spg_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		add_image_size( 'spg-featured-image', 2000, 1200, true );
+
+		add_image_size( 'spg-thumbnail-avatar', 100, 100, true );
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'spg' ),
@@ -67,6 +71,25 @@ if ( ! function_exists( 'spg_setup' ) ) :
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		$defaults = array(
+    'default-image' => '',
+    'random-default' => false,
+    'width' => '100%',
+    'height' => 0,
+    'flex-height' => true,
+    'flex-width' => true,
+    'default-text-color' => '',
+    'header-text' => true,
+    'uploads' => true,
+    'wp-head-callback' => '',
+    'admin-head-callback' => '',
+    'admin-preview-callback' => '',
+    'video' => false,
+    'video-active-callback' => 'is_front_page',
+);
+
+add_theme_support( 'custom-header', $defaults );
 
 		/**
 		 * Add support for core custom logo.
