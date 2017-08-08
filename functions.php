@@ -7,7 +7,7 @@
  * @package spg
  */
 
-if ( ! function_exists( 'spgspgetup' ) ) :
+if ( ! function_exists( 'spg_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -15,7 +15,7 @@ if ( ! function_exists( 'spgspgetup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function spgspgetup() {
+	function spg_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -25,7 +25,7 @@ if ( ! function_exists( 'spgspgetup' ) ) :
 		load_theme_textdomain( 'spg', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
-		add_themespgupport( 'automatic-feed-links' );
+		add_theme_support( 'automatic-feed-links' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -33,14 +33,14 @@ if ( ! function_exists( 'spgspgetup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_themespgupport( 'title-tag' );
+		add_theme_support( 'title-tag' );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_themespgupport( 'post-thumbnails' );
+		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -51,7 +51,7 @@ if ( ! function_exists( 'spgspgetup' ) ) :
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_themespgupport( 'html5', array(
+		add_theme_support( 'html5', array(
 			'search-form',
 			'comment-form',
 			'comment-list',
@@ -60,20 +60,20 @@ if ( ! function_exists( 'spgspgetup' ) ) :
 		) );
 
 		// Set up the WordPress core custom background feature.
-		add_themespgupport( 'custom-background', apply_filters( 'spg_custom_background_args', array(
+		add_theme_support( 'custom-background', apply_filters( 'spg_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		) ) );
 
 		// Add theme support for selective refresh for widgets.
-		add_themespgupport( 'customize-selective-refresh-widgets' );
+		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		/**
 		 * Add support for core custom logo.
 		 *
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
-		add_themespgupport( 'custom-logo', array(
+		add_theme_support( 'custom-logo', array(
 			'height'      => 250,
 			'width'       => 250,
 			'flex-width'  => true,
@@ -81,7 +81,7 @@ if ( ! function_exists( 'spgspgetup' ) ) :
 		) );
 	}
 endif;
-add_action( 'afterspgetup_theme', 'spgspgetup' );
+add_action( 'after_setup_theme', 'spg_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -93,7 +93,7 @@ add_action( 'afterspgetup_theme', 'spgspgetup' );
 function spg_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'spg_content_width', 640 );
 }
-add_action( 'afterspgetup_theme', 'spg_content_width', 0 );
+add_action( 'after_setup_theme', 'spg_content_width', 0 );
 
 /**
  * Register widget area.
@@ -101,7 +101,7 @@ add_action( 'afterspgetup_theme', 'spg_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function spg_widgets_init() {
-	registerspgidebar( array(
+	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'spg' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'spg' ),
@@ -140,7 +140,7 @@ function templatespgcripts() {
 		wp_enqueuespgcript( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueuespgcripts', 'templatespgcripts' );
+add_action( 'wp_enqueue_scripts', 'template_scripts' );
 
 /**
  * Implement the Custom Header feature.

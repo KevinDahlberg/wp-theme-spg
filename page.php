@@ -31,7 +31,7 @@ get_header(); ?>
 				?>
 			</div>
 			<div class="col-sm-4">
-			<?php getspgidebar(); ?>
+			<?php get_sidebar(); ?>
 			</div>
 		</div><!-- #main -->
 	</div><!-- #primary -->

@@ -18,7 +18,7 @@ get_header(); ?>
 			<header class="page-header">
 				<h1 class="page-title"><?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'spg' ), '<span>' . getspgearch_query() . '</span>' );
+					printf( esc_html__( 'Search Results for: %s', 'spg' ), '<span>' . get_search_query() . '</span>' );
 				?></h1>
 			</header><!-- .page-header -->
 
@@ -47,5 +47,5 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <?php
-getspgidebar();
+get_sidebar();
 get_footer();

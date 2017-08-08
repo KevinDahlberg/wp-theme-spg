@@ -7,13 +7,13 @@
  * @package spg
  */
 
-if ( ! is_activespgidebar( 'sidebar-1' ) ) {
+if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
 ?>
 
 <div class="col-sm-4">
 	<aside id="secondary" class="widget-area">
-		<?php dynamicspgidebar( 'sidebar-1' ); ?>
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</aside><!-- #secondary -->
 </div>

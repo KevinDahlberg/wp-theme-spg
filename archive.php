@@ -46,7 +46,7 @@ get_header(); ?>
 
 			<div class="col-sm-8">
 				<?php
-				getspgidebar();
+				get_sidebar();
 				?>
 			</div>
 		</div><!-- #main -->

@@ -16,8 +16,8 @@
  *
  * @uses spg_headerspgtyle()
  */
-function spg_custom_headerspgetup() {
-	add_themespgupport( 'custom-header', apply_filters( 'spg_custom_header_args', array(
+function spg_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'spg_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
@@ -26,22 +26,22 @@ function spg_custom_headerspgetup() {
 		'wp-head-callback'       => 'spg_headerspgtyle',
 	) ) );
 }
-add_action( 'afterspgetup_theme', 'spg_custom_headerspgetup' );
+add_action( 'after_setup_theme', 'spg_custom_header_setup' );
 
-if ( ! function_exists( 'spg_headerspgtyle' ) ) :
+if ( ! function_exists( 'spg_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
 	 * @see spg_custom_headerspgetup().
 	 */
-	function spg_headerspgtyle() {
+	function spg_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*
 		 * If no custom options for text are set, let's bail.
-		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_themespgupport( 'custom-header' ).
+		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
 		 */
-		if ( get_themespgupport( 'custom-header', 'default-text-color' ) === $header_text_color ) {
+		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
 			return;
 		}
 

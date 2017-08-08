@@ -14,19 +14,19 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function spg_jetpackspgetup() {
+function spg_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_themespgupport( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => 'spg_infinitespgcroll_render',
+		'render'    => 'spg_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
 
 	// Add theme support for Responsive Videos.
-	add_themespgupport( 'jetpack-responsive-videos' );
+	add_theme_support( 'jetpack-responsive-videos' );
 
 	// Add theme support for Content Options.
-	add_themespgupport( 'jetpack-content-options', array(
+	add_theme_support( 'jetpack-content-options', array(
 		'post-details' => array(
 			'stylesheet' => 'spg-style',
 			'date'       => '.posted-on',
@@ -37,15 +37,15 @@ function spg_jetpackspgetup() {
 		),
 	) );
 }
-add_action( 'afterspgetup_theme', 'spg_jetpackspgetup' );
+add_action( 'after_setup_theme', 'spg_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function spg_infinitespgcroll_render() {
+function spg_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
-		if ( isspgearch() ) :
+		if ( is_search() ) :
 			get_template_part( 'template-parts/content', 'search' );
 		else :
 			get_template_part( 'template-parts/content', get_post_format() );

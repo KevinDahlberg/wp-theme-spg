@@ -13,7 +13,7 @@
  */
 function spg_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
-	if ( ! isspgingular() ) {
+	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
 
@@ -25,7 +25,7 @@ add_filter( 'body_class', 'spg_body_classes' );
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
 function spg_pingback_header() {
-	if ( isspgingular() && pings_open() ) {
+	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }

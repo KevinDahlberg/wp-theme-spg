@@ -49,7 +49,7 @@ get_header(); ?>
 				endif; ?>
 			</div>
 				<?php
-				getspgidebar();
+				get_sidebar();
 				?>
 		</div><!-- #main -->
 	</div><!-- #primary -->

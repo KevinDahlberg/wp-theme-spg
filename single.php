@@ -29,7 +29,7 @@ get_header(); ?>
 			</div>
 
 		<?php
-		getspgidebar();
+		get_sidebar();
 		?>
 		</div><!-- #main -->
 	</div><!-- #primary -->
