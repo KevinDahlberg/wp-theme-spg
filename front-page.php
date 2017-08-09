@@ -10,7 +10,7 @@
 get_header(); ?>
 
 <div class="container-fluid">
-  <div id="about-panel" class="row front-panel">
+  <div id="about-panel" class="row">
     <?php
           $mypages = get_pages( array( 'child_of' => $post->ID ) );
           //get's pages that are children of the home page

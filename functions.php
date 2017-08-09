@@ -155,6 +155,9 @@ function template_scripts() {
 	//js files to make bootstrap options work with wordpress
 	wp_enqueue_script ( 'navClasses', get_template_directory_uri() . '/js/navClasses.js', array( ), '1.0', true );
 
+	//adds and removes css to control site scrolling
+	wp_enqueue_script ( 'scrolling', get_template_directory_uri() . '/js/scrolling.js', array(), '1.0', true );
+
 	wp_enqueue_script( 'spg-navigation', get_template_directory_uri() . '/js/navigation.js', array( ), '20151215', true );
 
 	wp_enqueue_script( 'spg-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array( ), '20151215', true );
