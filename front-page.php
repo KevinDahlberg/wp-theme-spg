@@ -9,7 +9,6 @@
 
 get_header(); ?>
 
-<div class="container-fluid">
   <div id="about-panel" class="row justify-content-cente">
     <div class="col">
       <div class="row">
@@ -42,7 +41,33 @@ get_header(); ?>
       </div>
     </div>
   </div>
-</div>
+
+<!-- need to change image on this before deployment-->
+  <div id="shows-panel-image">
+    <?php the_custom_header_markup(); ?>
+  </div>
+
+  <div id="shows-content">
+    <?php
+          $num = 1;
+          $showposts = get_posts( array(
+            'category_name' => 'Shows',
+            'posts_per_page' => 10,
+      	     'offset' => 0,
+            'orderby' => 'date',
+            'order' => 'ASC'));
+          // foreach( $showposts as $show ) {
+            // setup_postdata( $show );
+
+            //  echo $show->post_title
+
+            //  the_content();
+
+            //  $num++;
+          // }
+          // wp_reset_postdata();
+      ?>
+  </div>
 <?php
 get_footer();
 ?>

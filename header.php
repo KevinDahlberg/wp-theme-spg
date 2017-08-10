@@ -48,5 +48,3 @@
 		</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->
-
-	<div id="content">
