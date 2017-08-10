@@ -385,8 +385,29 @@ embed, iframe, object {
 	z-index: 1;
 }
 
+/* front page */
+
+/* about panel */
 #about-panel {
 	left: 0;
 	top: 0;
 	background-color: white;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+@media (min-width: 600px){
+  .text-columns {
+    -webkit-column-gap: 20px;
+       -moz-column-gap: 20px;
+            column-gap: 20px;
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
+  }
 }
