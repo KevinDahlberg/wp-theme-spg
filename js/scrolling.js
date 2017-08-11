@@ -6,57 +6,42 @@
 
   sticky();
 
+  /**
+  * @function sizing
+  * @desc functions that are run when the window resizes
+  */
   function sizing () {
-    // imageOne();
-    // panelOne();
-    // imageTwo();
-    // footer();
     sticky();
   }
 
+  /**
+  * @function sticky
+  * @desc sets the divs that are going to stick to the top of the screen on scroll
+  */
   function sticky () {
+    var navSticky = $('#site-navigation');
     var firstSticky = $('#about-panel');
     var secondSticky = $('#shows-panel-image');
-    stickyDiv (firstSticky);
+    stickyDiv (navSticky);
+    // stickyDiv (firstSticky);
     stickyDiv (secondSticky);
   }
 
-  function imageOne () {
-    var nav = $('#site-navigation');
-    var imagePlacement = nav.position().top + nav.height();
-    console.log(imagePlacement);
-    $('#header-image').find('img').css('margin-top', imagePlacement).addClass('img-fluid');
-  }
-
-  function panelOne () {
-    var backgroundImage = $('#header-image').find('img');
-    var contentPlacement = backgroundImage.position().top + backgroundImage.height();
-    $('#placeholder').css('height',contentPlacement);
-  }
-
-  function imageTwo () {
-    var imageTwoPlacement = $('#about-panel').position().top + $('#about-panel').height();
-    $('#placeholder-two').css('height', imageTwoPlacement);
-    console.log('imageTwoPlacement ', imageTwoPlacement);
-  }
-
-  function footer () {
-     var mastheadTotal = $('#masthead').position().top + $('#masthead').height();
-     var contentTotal = $('#about-panel').position().top + $('#about-panel').height();
-     var footerPlacement = mastheadTotal + contentTotal;
-    $('#footer').css('margin-top', footerPlacement);
-  }
-
+  /**
+  * @function stickyDiv
+  * @desc adds an affix class to the provided element
+  * @param element, either an ID or a class
+  * @return adds affix class, CSS in the stylesheet needs to match up
+  */
   function stickyDiv (el) {
     var sticky = el.offset().top;
     $(window).scroll(function() {
         // console.log('scroll ', $(window).scrollTop());
         // console.log('sticky ', sticky);
-        if ($(window).scrollTop() > (sticky - 56)) {
+        if ($(window).scrollTop() > (sticky)) {
             el.addClass('affix');
-            el.css('margin-top', '56px');
         } else {
-          el.removeClass('affix').css('margin-top', '0px');
+          el.removeClass('affix');
         }
 
     });

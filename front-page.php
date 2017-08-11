@@ -9,6 +9,7 @@
 
 get_header(); ?>
 
+<div class="container-fluid">
   <div id="placeholder"></div>
   <div id="about-panel" class="row justify-content-cente">
     <div class="col">
@@ -35,7 +36,7 @@ get_header(); ?>
            </div>
          </div>
      </div>
-        <div class="col-lg-6 text-columns">
+        <div class="col-lg-8 text-columns">
           <?php echo $content; ?>
         </div>
             <?php } ?>

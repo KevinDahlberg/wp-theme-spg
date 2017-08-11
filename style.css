@@ -330,7 +330,8 @@ body, html{
 .site-header {
   top: 0;
   left: 0;
-	z-index: 0;
+  position: sticky;
+	z-index: -5;
 }
 
 .custom-header {
@@ -370,11 +371,15 @@ body, html{
 #site-navigation {
   top: 0;
   left: 0;
-  position: sticky;
+  position: relative;
 	width: 100%;
   z-index: 0;
 }
 
+#site-navigation.affix {
+  position: sticky;
+  z-index: 100;
+}
 /* content */
 
 #content {
@@ -403,7 +408,8 @@ body, html{
   position:sticky;
   top:0;
   right:0;
-  z-index: -4;
+  z-index: 100;
+  margin-top: 56px;
 }
 
 #about-panel.position {
@@ -412,7 +418,7 @@ body, html{
 .about-image {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 
