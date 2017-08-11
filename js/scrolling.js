@@ -9,13 +9,16 @@
   function sizing () {
     imageOne();
     panelOne();
+    imageTwo();
     footer();
     sticky();
   }
 
   function sticky () {
     var firstSticky = $('#about-panel');
+    var secondSticky = $('#shows-panel-image');
     stickyDiv (firstSticky);
+    stickyDiv (secondSticky);
   }
 
   function imageOne () {
@@ -32,8 +35,9 @@
   }
 
   function imageTwo () {
-    var imageTwoPlacement = $('#about-panel').position.top + $('#about-panel').height();
-    $('#shows-panel-image').css('margin-top', imageTwoPlacement);
+    var imageTwoPlacement = $('#about-panel').position().top + $('#about-panel').height();
+    $('#placeholder-two').css('height', imageTwoPlacement);
+    console.log('imageTwoPlacement ', imageTwoPlacement);
   }
 
   function footer () {

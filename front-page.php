@@ -43,6 +43,7 @@ get_header(); ?>
     </div>
   </div>
 
+  <div id="placeholder-two"></div>
 <!-- need to change image on this before deployment-->
   <div id="shows-panel-image">
     <?php the_custom_header_markup(); ?>

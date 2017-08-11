@@ -401,6 +401,7 @@ body, html{
   position:fixed;
   top:0;
   right:0;
+  z-index: -4;
 }
 
 #about-panel.position {
@@ -426,7 +427,14 @@ body, html{
 
 /* shows panel */
 #shows-panel-image {
+  z-index: 50;
+}
 
+#shows-panel-image.affix {
+  position:fixed;
+  top:0;
+  right:0;
+  z-index:-3;
 }
 
 .site-footer {
