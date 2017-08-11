@@ -10,6 +10,7 @@
     imageOne();
     panelOne();
     footer();
+    sticky();
   }
 
   function sticky () {
@@ -27,7 +28,7 @@
   function panelOne () {
     var backgroundImage = $('#header-image').find('img');
     var contentPlacement = backgroundImage.position().top + backgroundImage.height();
-    $('#about-panel').css('margin-top',contentPlacement);
+    $('#placeholder').css('height',contentPlacement);
   }
 
   function imageTwo () {
@@ -45,10 +46,15 @@
   function stickyDiv (el) {
     var sticky = el.offset().top;
     $(window).scroll(function() {
+        console.log('scroll ', $(window).scrollTop());
+        console.log('sticky ', sticky);
         if ($(window).scrollTop() > (sticky - 56)) {
             el.addClass('affix');
             el.css('margin-top', '56px');
+        } else {
+          el.removeClass('affix').css('margin-top', '0px');
         }
+
     });
   }
 

@@ -9,6 +9,7 @@
 
 get_header(); ?>
 
+  <div id="placeholder"></div>
   <div id="about-panel" class="row justify-content-cente">
     <div class="col">
       <div class="row">
