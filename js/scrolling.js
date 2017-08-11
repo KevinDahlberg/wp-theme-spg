@@ -7,10 +7,10 @@
   sticky();
 
   function sizing () {
-    imageOne();
-    panelOne();
-    imageTwo();
-    footer();
+    // imageOne();
+    // panelOne();
+    // imageTwo();
+    // footer();
     sticky();
   }
 
@@ -50,8 +50,8 @@
   function stickyDiv (el) {
     var sticky = el.offset().top;
     $(window).scroll(function() {
-        console.log('scroll ', $(window).scrollTop());
-        console.log('sticky ', sticky);
+        // console.log('scroll ', $(window).scrollTop());
+        // console.log('sticky ', sticky);
         if ($(window).scrollTop() > (sticky - 56)) {
             el.addClass('affix');
             el.css('margin-top', '56px');
