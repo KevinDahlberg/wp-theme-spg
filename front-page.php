@@ -10,8 +10,7 @@
 get_header(); ?>
 
 <div class="container-fluid">
-  <div id="placeholder"></div>
-  <div id="about-panel" class="row justify-content-cente">
+  <div id="about-panel" class="row justify-content-center">
     <div class="col">
       <div class="row">
         <div class="col-lg-4">
@@ -43,34 +42,53 @@ get_header(); ?>
       </div>
     </div>
   </div>
-
-  <div id="placeholder-two"></div>
 <!-- need to change image on this before deployment-->
-  <div id="shows-panel-image">
-    <?php the_custom_header_markup(); ?>
+  <div id="shows-panel" class="row">
+      <div id="shows-panel-image">
+          <?php the_custom_header_markup(); ?>
+      </div>
+
+    <div id="shows-content" class="row">
+      <div class="col-md-6">
+      </div>
+      <div class="col-md-6">
+        <h1>Show Dates</h1>
+        <?php
+              $num = 1;
+              $showposts = get_posts( array(
+                'post_type' => 'show',
+                'posts_per_page' => 10,
+          	     'offset' => 0,
+                'orderby' => 'date',
+                'order' => 'ASC'));
+              foreach( $showposts as $show ) {
+                setup_postdata( $show );
+                ?>
+                <div class="row">
+                  <div class="col">
+                <?php
+                echo $show->post_title;
+                ?>
+                 -
+                <?php
+                echo get_post_meta($show->ID, 'location_meta', true);
+
+              ?>
+            </div>
+            </div>
+            <?php
+
+                $num++;
+              }
+              wp_reset_postdata();
+          ?>
+      </div>
+    </div>
+  <div id="merch-panel" class="row">
+    <div class="col">
+    </div>
   </div>
-
-  <div id="shows-content">
-    <?php
-          $num = 1;
-          $showposts = get_posts( array(
-            'category_name' => 'Shows',
-            'posts_per_page' => 10,
-      	     'offset' => 0,
-            'orderby' => 'date',
-            'order' => 'ASC'));
-          // foreach( $showposts as $show ) {
-            // setup_postdata( $show );
-
-            //  echo $show->post_title
-
-            //  the_content();
-
-            //  $num++;
-          // }
-          // wp_reset_postdata();
-      ?>
-  </div>
+</div>
 <?php
 get_footer();
 ?>

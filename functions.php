@@ -189,6 +189,46 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+* Post type for shows
+*/
+function show_custom_post_type() {
+  register_post_type( 'show',
+    array(
+      'labels' => array(
+        'name' => __( 'Shows' ),
+        'singular_name' => __( 'Show' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+    )
+  );
+}
+add_action( 'init', 'show_custom_post_type' );
+
+function admin_init(){
+	add_meta_box('location_meta', 'Location', 'location_meta', 'show', 'normal', 'low');
+}
+
+function location_meta(){
+	global $post;
+	$custom = get_post_custom($post->ID);
+	$location = isset($custom['location_meta'][0])?$custom['location_meta'][0]:'';
+	?>
+	<label>Location:</label>
+	<input name='location_meta' value='<?php echo $location ?>' />
+	<?php
+}
+
+add_action('admin_init', 'admin_init');
+
+function save_details(){
+	global $post;
+
+	update_post_meta($post->ID, 'location_meta', $_POST['location_meta']);
+}
+
+add_action( 'save_post', 'save_details' );
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
